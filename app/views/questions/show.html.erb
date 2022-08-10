@@ -1,0 +1,16 @@
+<h2>Вопрос</h2>
+
+<p><%= @question.body %></p>
+<p><%= @question.created_at.strftime("%H:%M:%S") %></p>
+
+<p>
+  user_id: <b><%= @question.user_id %></b>
+</p>
+
+<p>
+  <%= link_to "Все вопросы", "/questions" %>
+</p>
+
+<p> Hosted on <%= "#{request.host}:#{request.port}" %> </p>
+
+
