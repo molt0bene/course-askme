@@ -1,0 +1,15 @@
+<div class="container">
+  <h2 class="title-lg">Новый вопрос</h2>
+  <%= form_with model: @question do |form| %>
+    <p><%= form.label :body, "Текст вопроса" %></p>
+    <p><%= form.text_area :body, rows: 5, class: 'form-text-area' %></p>
+
+    <p><%= form.label :user_id, class: 'form-text-field' %></p>
+    <p><%= form.number_field :user_id %></p>
+
+    <p><%= form.submit "Создать", class: 'button button-main' %>
+      или
+      <%= link_to "вернуться", "/" %>
+    </p>
+  <% end %>
+</div>

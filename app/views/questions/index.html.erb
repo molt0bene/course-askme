@@ -1,5 +1,9 @@
-<h2>Вопросы</h2>
+<div class="container">
+  <h2 class="title-lg mb">Вопросы</h2>
 
-<% @questions.each do |question| %>
-  <p><%= link_to "Вопрос #{question.id}", question %></p>
-<% end %>
+  <% @questions.each do |question| %>
+    <p class="mb-sm"><%= link_to "Вопрос #{question.id}", question %></p>
+  <% end %>
+
+  <%= link_to 'Создать новый вопрос', new_question_path, class: 'button button-main' %>
+</div>

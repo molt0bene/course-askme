@@ -1,0 +1,23 @@
+.mt-sm {
+  margin-top: 0.6rem;
+}
+
+.mt-md, .mt {
+  margin-top: 1rem;
+}
+
+.mt-lg {
+  margin-top: 1.75rem;
+}
+
+.mb-sm {
+  margin-bottom: 0.6rem;
+}
+
+.mb-md, .mt {
+  margin-bottom: 1rem;
+}
+
+.mb-lg {
+  margin-bottom: 1.75rem;
+}

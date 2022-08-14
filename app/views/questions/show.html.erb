@@ -1,16 +1,21 @@
-<h2>Вопрос</h2>
+<div class="container">
+  <h2 class="title-lg mb">Вопрос <%= @question.id %></h2>
 
-<p><%= @question.body %></p>
-<p><%= @question.created_at.strftime("%H:%M:%S") %></p>
+  <p class="mb-sm"><%= @question.body %></p>
+  <p><%= @question.created_at.strftime("%H:%M:%S") %></p>
 
-<p>
-  user_id: <b><%= @question.user_id %></b>
-</p>
+  <p>
+    user_id: <b><%= @question.user_id %></b>
+  </p>
 
-<p>
-  <%= link_to "Все вопросы", "/questions" %>
-</p>
+  <div class="mt">
+    <%= link_to fa_icon('pencil'), edit_question_path(@question), title: "Изменить вопрос" %>
+    <%= button_to question_path(@question), method: :delete, title: 'Удалить вопрос',
+                  data: {confirm: "Точно удалить вопрос?"} do %>
+      <%= fa_icon('trash-o') %>
+    <% end %>
+  </div>
 
-<p> Hosted on <%= "#{request.host}:#{request.port}" %> </p>
-
+  <p class="mt"><%= link_to "Все вопросы", "/questions" %></p>
+</div>
 
