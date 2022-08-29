@@ -6,4 +6,8 @@
   <% end %>
 
   <%= link_to 'Создать новый вопрос', new_question_path, class: 'button button-main' %>
+
+  <p class="mt">
+    <%= render 'form', question: @question %>
+  </p>
 </div>

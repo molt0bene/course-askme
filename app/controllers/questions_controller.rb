@@ -12,6 +12,12 @@ class QuestionsController < ApplicationController
     redirect_to question_path(@question)
   end
 
+  def hide
+    @question.visible = false
+
+    redirect_to questions_path
+  end
+
   def destroy
     @question.destroy
 
@@ -22,6 +28,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
+    @question = Question.new
     @questions = Question.all
   end
 

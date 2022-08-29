@@ -3,6 +3,11 @@
 
   <p class="mb-sm"><%= @question.body %></p>
   <p><%= @question.created_at.strftime("%H:%M:%S") %></p>
+  <p>
+    <% if @question.visible %>
+      <%= link_to fa_icon('eye-slash'), edit_question_path(@question), title: "Скрыть вопрос" %>
+    <% end %>
+  </p>
 
   <p>
     user_id: <b><%= @question.user_id %></b>
