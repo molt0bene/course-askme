@@ -1,25 +1,7 @@
 <div class="container">
   <h2 class="title-lg mb">Вопрос <%= @question.id %></h2>
 
-  <p class="mb-sm"><%= @question.body %></p>
-  <p><%= @question.created_at.strftime("%H:%M:%S") %></p>
-  <p>
-    <% if @question.visible %>
-      <%= link_to fa_icon('eye-slash'), edit_question_path(@question), title: "Скрыть вопрос" %>
-    <% end %>
-  </p>
-
-  <p>
-    user_id: <b><%= @question.user_id %></b>
-  </p>
-
-  <div class="mt">
-    <%= link_to fa_icon('pencil'), edit_question_path(@question), title: "Изменить вопрос" %>
-    <%= button_to question_path(@question), method: :delete, title: 'Удалить вопрос',
-                  data: {confirm: "Точно удалить вопрос?"} do %>
-      <%= fa_icon('trash-o') %>
-    <% end %>
-  </div>
+  <%= render 'question', question: @question %>
 
   <p class="mt"><%= link_to "Все вопросы", "/questions" %></p>
 </div>

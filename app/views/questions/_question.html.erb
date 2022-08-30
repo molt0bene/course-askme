@@ -7,10 +7,16 @@
     <%= l(question.created_at, format: :short) %>
   </div>
 
+  <!-- TODO: add visible -->
+
   <div>
+    <% if question.visible %>
+      <%= link_to fa_icon('eye-slash'), edit_question_path(question), title: 'Изменить вопрос' %>
+    <% end %>
+
     <%= link_to fa_icon('pencil'), edit_question_path(question),
                 title: 'Изменить вопрос' %>
-    <%= button_to question_path(@question), method: :delete, title: 'Удалить вопрос',
+    <%= button_to question_path(question), method: :delete, title: 'Удалить вопрос',
                   data: {confirm: "Точно удалить вопрос?"} do %>
       <%= fa_icon('trash-o') %>
     <% end %>
