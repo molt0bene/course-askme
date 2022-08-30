@@ -1,5 +1,11 @@
 <div class="mb-sm">
-  <%= question.body %>
+  <% if question.visible %>
+    <%= question.body %>
+  <% else %>
+    <div class="invisible">
+      <%= question.body %>
+    </div>
+  <% end %>
 </div>
 
 <div class="text-sm question-footer">
@@ -7,11 +13,11 @@
     <%= l(question.created_at, format: :short) %>
   </div>
 
-  <!-- TODO: add visible -->
-
   <div>
     <% if question.visible %>
-      <%= link_to fa_icon('eye-slash'), edit_question_path(question), title: 'Изменить вопрос' %>
+      <%= button_to "/questions/#{question.id}/hide", method: :put, title: 'Скрыть вопрос' do %>
+        <%= fa_icon('eye-slash') %>
+      <% end %>
     <% end %>
 
     <%= link_to fa_icon('pencil'), edit_question_path(question),

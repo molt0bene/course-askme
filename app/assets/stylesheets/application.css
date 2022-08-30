@@ -13,12 +13,12 @@
  *= require reset
  *=
  *= require font-awesome
+  *= require question
  *=
  *= require text
  *= require spacing
  *= require layout
  *= require button
  *= require form
- *= require question
  *= require message
  */

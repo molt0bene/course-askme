@@ -13,7 +13,13 @@ class QuestionsController < ApplicationController
   end
 
   def hide
-    @question.visible = false
+    @question = Question.find(params[:id])
+
+    if @question.visible
+      @question.update(visible: false)
+    else
+      @question.update(visible: true)
+    end
 
     redirect_to questions_path
   end
