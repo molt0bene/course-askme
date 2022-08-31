@@ -15,7 +15,7 @@
 
   <div>
     <% if question.visible %>
-      <%= button_to "/questions/#{question.id}/hide", method: :put, title: 'Скрыть вопрос' do %>
+      <%= button_to hide_question_path(question), method: :put, title: 'Скрыть вопрос' do %>
         <%= fa_icon('eye-slash') %>
       <% end %>
     <% end %>
