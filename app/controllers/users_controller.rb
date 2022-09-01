@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    session[:curr_time] = Time.now
     @user = User.new
   end
 
