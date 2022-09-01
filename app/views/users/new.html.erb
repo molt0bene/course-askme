@@ -7,10 +7,13 @@
       <p><%= form.text_field :name, class: 'form-text-field' %></p>
 
       <p class="mt"><%= form.label :nickname, 'Ник на сайте' %></p>
-      <p><%= form.text_field :username, class: 'form-text-field' %></p>
+      <p><%= form.text_field :nickname, class: 'form-text-field' %></p>
 
       <p class="mt"><%= form.label :email %></p>
       <p><%= form.text_field :email, class: 'form-text-field' %></p>
+
+      <p class="mt"><%= form.label :password %></p>
+      <p><%= form.password_field :password, class: 'form-text-field' %></p>
 
       <p class="mt-lg"><%= form.submit "Зарегистрироваться", class: 'button button-main mt-lg' %></p>
   <% end %>

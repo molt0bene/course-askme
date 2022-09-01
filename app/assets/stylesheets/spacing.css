@@ -21,3 +21,16 @@
 .mb-lg {
   margin-bottom: 1.75rem;
 }
+
+.mr-sm {
+  margin-right: .6em;
+}
+
+.mr, .mr-md {
+  margin-right: 1em;
+}
+
+.mr-lg {
+  margin-right: 1.75em;
+}
+

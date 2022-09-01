@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   def create
-    user_params = params.require(:user).permit(:name, :nickname, :email)
+    user_params = params.require(:user).permit(:name, :nickname, :email, :password)
     @user = User.create(user_params)
 
     redirect_to root_path, notice: 'Вы успешно зарегистрировались'
   end
 
   def new
-    session[:current_time] = Time.now
+    session[:curr_time] = Time.now
     @user = User.new
   end
 end
