@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :questions
 
   before_save :downcase_nickname
 
