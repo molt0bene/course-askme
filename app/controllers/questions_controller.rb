@@ -3,13 +3,13 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.create(question_params)
-    redirect_to question_path(@question), notice: 'Новый вопрос создан!'
+    redirect_to user_path(@question.user), notice: 'Новый вопрос создан!'
   end
 
   def update
     @question.update(question_params)
 
-    redirect_to question_path(@question), notice: 'Обновили вопрос!'
+    redirect_to user_path(@question.user), notice: 'Обновили вопрос!'
   end
 
   def hide
@@ -21,9 +21,10 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    @user = @question.user
     @question.destroy
 
-    redirect_to questions_path, notice: 'Вопрос удален!'
+    redirect_to user_path(@user), notice: 'Вопрос удален!'
   end
 
   def show
@@ -35,7 +36,8 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @user = User.find(params[:user_id])
+    @question = Question.new(user: @user)
   end
 
   def edit

@@ -1,0 +1,26 @@
+<div class="user-box">
+  <h2 class="title-lg mt-lg"><%= @user.name %></h2>
+  <p class="text-bold mt mb-lg">@<%= @user.nickname %></p>
+</div>
+
+<div class="container">
+  <%= link_to 'Спроси меня', new_question_path(user_id: @user.id),
+              class: 'button button-yellow' %>
+
+  <p class="mt">
+    <%= render 'questions/form', question: @question %>
+  </p>
+</div>
+
+<div class="container mt-sm">
+  <h2 class="title-lg">
+    <%= @questions.count %>
+    <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
+  </h2>
+</div>
+
+<% @questions.each do |question| %>
+  <div class="mt-sm container">
+    <%= render question %>
+  </div>
+<% end %>
