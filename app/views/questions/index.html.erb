@@ -1,5 +1,18 @@
+<div class="container">
+  <h2 class="title-lg mb">
+    Недавно добавились
+  </h2>
+
+  <div class="users-box">
+    <% @users.each do |user| %>
+      <%= render partial: 'users/user_avatar', locals: {user: user} %>
+    <% end %>
+  </div>
+</div>
+
 <div class="container mt-sm">
   <h2 class="title-lg">
+    <%= inclination(@questions.count, 'Последний', 'Последние', 'Последние') %>
     <%= @questions.count %>
     <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
   </h2>
@@ -7,6 +20,11 @@
 
 <% @questions.each do |question| %>
   <div class="mt-sm container">
-    <%= render question %>
+    <p class="mb text-sm text-grey">
+      Вопрос <%= link_to "##{question.id}", question_path(question) %>
+      для юзера <%= link_to wrap(question.user.nickname), user_path(question.user) %>
+    </p>
+
+    <%= render partial: 'question', object: question %>
   </div>
 <% end %>

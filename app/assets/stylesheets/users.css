@@ -1,0 +1,38 @@
+.users-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.users-box-user {
+  flex-basis: 100px;
+  flex-grow: 0;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+
+.users-box-user a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.users-box-user-bg0 {
+  background: #d00000;
+}
+
+.users-box-user-bg1 {
+  background: #03071E;
+}
+
+.users-box-user-bg2 {
+  background: #ffba08;
+}
+
+.users-box-user-bg3 {
+  background: #6A040F;
+}
+
+.users-box-user-bg4 {
+  background: #f48c06;
+}
