@@ -3,5 +3,13 @@
 
   <p class="mb">для <%= link_to "@#{@question.user.nickname}", user_path(@question.user) %></p>
 
+  <% if @question.errors.any? %>
+    <div class="mt">
+      <% @question.errors.full_messages.each do |message| %>
+        <p class="mb-sm text-red"><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+
   <%= render 'form', question: @question %>
 </div>

@@ -4,7 +4,13 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.create(question_params)
-    redirect_to user_path(@question.user), notice: 'Новый вопрос создан!'
+
+    if @question.save
+      redirect_to question_path(@question), notice: 'Новый вопрос создан!'
+    else
+      render :new
+    end
+
   end
 
   def update
