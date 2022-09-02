@@ -1,9 +1,9 @@
 <div class="mb-sm">
   <% if question.visible %>
-    <%= simple_format(question.body) %>
+    <%= simple_format h(question.body) %>
   <% else %>
     <div class="invisible">
-      <%= simple_format(question.body) %>
+      <%= simple_format h(question.body) %>
     </div>
   <% end %>
 </div>
