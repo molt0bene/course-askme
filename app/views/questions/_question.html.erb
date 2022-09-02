@@ -8,6 +8,12 @@
   <% end %>
 </div>
 
+<% if question.answer.present? %>
+  <div class="mb-sm text-dark-red">
+    <%= question.answer %>
+  </div>
+<% end %>
+
 <div class="text-sm question-footer">
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
@@ -22,8 +28,10 @@
         <% end %>
       <% end %>
 
-      <%= link_to fa_icon('pencil'), edit_question_path(question),
-                  title: 'Изменить вопрос' %>
+      <% edit_icon = question.answer.blank? ? 'reply' : 'pencil' %>
+      <%= link_to fa_icon(edit_icon), edit_question_path(question),
+          title: 'Изменить вопрос'%>
+
       <%= button_to question_path(question), method: :delete, title: 'Удалить вопрос',
                     data: {confirm: "Точно удалить вопрос?"} do %>
         <%= fa_icon('trash-o') %>

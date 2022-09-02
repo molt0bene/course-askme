@@ -24,6 +24,12 @@
     <%= @questions.count %>
     <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
   </h2>
+
+  <% if @questions.count == 0 %>
+    <p class="mt">У этого пользователя пока никто ничего не спросил...</p>
+    <p class="mt-sm">Но вы легко можете это <%= link_to 'исправить',
+                  new_question_path(user_id: @user.id)%>.</p>
+  <% end %>
 </div>
 
 <% @questions.each do |question| %>
