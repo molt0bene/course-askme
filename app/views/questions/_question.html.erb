@@ -1,9 +1,9 @@
 <div class="mb-sm">
   <% if question.visible %>
-    <%= question.body %>
+    <%= simple_format(question.body) %>
   <% else %>
     <div class="invisible">
-      <%= question.body %>
+      <%= simple_format(question.body) %>
     </div>
   <% end %>
 </div>
@@ -13,18 +13,21 @@
     <%= l(question.created_at, format: :short) %>
   </div>
 
-  <div>
-    <% if question.visible %>
-      <%= button_to hide_question_path(question), method: :put, title: 'Скрыть вопрос' do %>
-        <%= fa_icon('eye-slash') %>
-      <% end %>
-    <% end %>
 
-    <%= link_to fa_icon('pencil'), edit_question_path(question),
-                title: 'Изменить вопрос' %>
-    <%= button_to question_path(question), method: :delete, title: 'Удалить вопрос',
-                  data: {confirm: "Точно удалить вопрос?"} do %>
-      <%= fa_icon('trash-o') %>
-    <% end %>
-  </div>
+  <% if current_user == question.user %>
+    <div>
+      <% if question.visible %>
+        <%= button_to hide_question_path(question), method: :put, title: 'Скрыть вопрос' do %>
+          <%= fa_icon('eye-slash') %>
+        <% end %>
+      <% end %>
+
+      <%= link_to fa_icon('pencil'), edit_question_path(question),
+                  title: 'Изменить вопрос' %>
+      <%= button_to question_path(question), method: :delete, title: 'Удалить вопрос',
+                    data: {confirm: "Точно удалить вопрос?"} do %>
+        <%= fa_icon('trash-o') %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

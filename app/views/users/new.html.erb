@@ -1,8 +1,16 @@
 <div class="container">
   <h2 class="title">Присоединяйся и спрашивай!</h2>
 
+  <% if @user.errors.any? %>
+    <div class="mt">
+      <% @user.errors.full_messages.each do |message| %>
+        <p class="mb-sm text-red"><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="mt">
-    <%= form_with model: @user do |form| %>
+    <%= form_with model: @user, local: true, data: {turbo: false} do |form| %>
       <p><%= form.label :name, 'Ваше имя' %></p>
       <p><%= form.text_field :name, class: 'form-text-field' %></p>
 
@@ -14,6 +22,9 @@
 
       <p class="mt"><%= form.label :password %></p>
       <p><%= form.password_field :password, class: 'form-text-field' %></p>
+
+      <p class="mt"><%= form.label :password_confirmation %></p>
+      <p><%= form.password_field :password_confirmation, class: 'form-text-field' %></p>
 
       <p class="mt-lg"><%= form.submit "Зарегистрироваться", class: 'button button-main mt-lg' %></p>
   <% end %>
