@@ -16,7 +16,7 @@
         <div>
           <% if current_user.present? %>
             <%= link_to wrap(current_user.nickname), user_path(current_user), class: 'mr-sm' %>
-            <%= button_to 'Выйти', session_path, method: :delete %>
+            <%= button_to 'Выйти', session_path, method: :delete, class: 'button button-main' %>
           <% else %>
             <%= link_to 'Регистрация', new_user_path, class: 'button button-yellow mr-sm' %>
             <%= link_to 'Вход', new_session_path, class: 'button button-yellow' %>

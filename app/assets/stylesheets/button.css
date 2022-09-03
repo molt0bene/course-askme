@@ -6,6 +6,8 @@
   text-decoration: none;
   font-size: 14px;
   border-radius: 3px;
+
+  -webkit-appearance: none;
 }
 
 .button-main {
