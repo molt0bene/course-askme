@@ -37,7 +37,7 @@
     <% end %>
 
     <div class="mt-lg">
-      <%= button_to "Удалить профиль", user_path(@user),
+      <%= button_to "Удалить профиль", user_path(@user.nickname),
                     method: :delete,
                     form: {data: {confirm: "Вы точно хотите удалить свой профиль?"}},
                     class: 'text-red text-sm button button-main' %>
