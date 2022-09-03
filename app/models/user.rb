@@ -9,6 +9,9 @@ class User < ApplicationRecord
   validates :nickname, presence: true, uniqueness: true, length: {maximum: 40},
             format: {with: /\w+/}
 
+  include Gravtastic
+  gravtastic(secure: true, filetype: :png, size: 100, default: 'mp')
+
   private
   def downcase_nickname
     nickname.downcase!
