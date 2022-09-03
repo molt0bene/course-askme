@@ -22,7 +22,7 @@
   <div class="mt-sm container">
     <p class="mb text-sm text-grey">
       Вопрос <%= link_to "##{question.id}", question_path(question) %>
-      для юзера <%= link_to wrap(question.user.nickname), user_path(question.user) %>
+      для юзера <%= link_to wrap(question.user.nickname), user_path(question.user.nickname) %>
     </p>
 
     <%= render partial: 'question', object: question %>

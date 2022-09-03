@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="title-lg mb">Вопрос <%= @question.id %></h2>
-  <p class="mt-sm"><%= link_to "Все вопросы @#{@question.user.nickname}", user_path(@question.user) %></p>
+  <p class="mt-sm"><%= link_to "Все вопросы @#{@question.user.nickname}", user_path(@question.user.nickname) %></p>
 </div>
 
 <div class="container mt-sm">
