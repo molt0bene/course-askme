@@ -15,7 +15,7 @@
   </div>
 
   <div class="mt">
-    <%= form_with model: @user, local: true, data: {turbo: false} do |form| %>
+    <%= form_with model: @user, url: user_path(@user.nickname), local: true do |form| %>
       <p><%= form.label :name, 'Имя' %></p>
       <p><%= form.text_field :name, class: 'form-text-field' %></p>
 

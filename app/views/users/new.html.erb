@@ -10,7 +10,7 @@
   <% end %>
 
   <div class="mt">
-    <%= form_with model: @user, local: true, data: {turbo: false} do |form| %>
+    <%= form_with model: @user, local: true do |form| %>
       <p><%= form.label :name, 'Ваше имя' %></p>
       <p><%= form.text_field :name, class: 'form-text-field' %></p>
 
