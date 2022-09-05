@@ -7,13 +7,14 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true,
             format: {with: URI::MailTo::EMAIL_REGEXP}
   validates :nickname, presence: true, uniqueness: true, length: {maximum: 40},
-            format: {with: /\w+/}
+            format: { without: /\W/ }
 
   include Gravtastic
   gravtastic(secure: true, filetype: :png, size: 100, default: 'mp')
 
   private
+
   def downcase_nickname
-    nickname.downcase!
+    nickname&.downcase!
   end
 end
