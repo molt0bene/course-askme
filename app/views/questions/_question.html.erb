@@ -16,7 +16,12 @@
 
 <div class="text-sm question-footer">
   <div class="text-grey">
-    <%= l(question.created_at, format: :short) %>
+    <%= l(question.created_at, format: :short) %>, от:
+    <% if question.author_id %>
+      <%= link_to wrap(author_by_id(question.author_id).nickname), user_path(author_by_id(question.author_id).nickname) %>
+    <% else %>
+      Аноним
+    <% end %>
   </div>
 
 

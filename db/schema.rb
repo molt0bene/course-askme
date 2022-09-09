@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_04_175846) do
+ActiveRecord::Schema.define(version: 2022_09_09_075142) do
 
   create_table "questions", force: :cascade do |t|
     t.text "body"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2022_09_04_175846) do
     t.datetime "updated_at", null: false
     t.boolean "visible", default: true
     t.text "answer"
+    t.integer "author_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
