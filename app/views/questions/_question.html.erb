@@ -18,7 +18,7 @@
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>, от:
     <% if question.author_id %>
-      <%= link_to wrap(author_by_id(question.author_id).nickname), user_path(author_by_id(question.author_id).nickname) %>
+      <%= link_to wrap(question.author.nickname), user_path(question.author.nickname) %>
     <% else %>
       Аноним
     <% end %>
