@@ -15,7 +15,7 @@
   </div>
 
   <div class="mt">
-    <%= form_with model: @user, url: user_path(@user.nickname), local: true do |form| %>
+    <%= form_with model: @user, url: user_path(params[:nickname]), local: true do |form| %>
       <p><%= form.label :name, 'Имя' %></p>
       <p><%= form.text_field :name, class: 'form-text-field' %></p>
 
@@ -37,7 +37,7 @@
     <% end %>
 
     <div class="mt-lg">
-      <%= button_to "Удалить профиль", user_path(@user.nickname),
+      <%= button_to "Удалить профиль", user_path(params[:nickname]),
                     method: :delete,
                     form: {data: {confirm: "Вы точно хотите удалить свой профиль?"}},
                     class: 'text-red text-sm button button-main' %>
