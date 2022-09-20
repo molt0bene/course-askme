@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Gravtastic
+
   has_secure_password
   has_many :questions, dependent: :destroy
 
@@ -9,7 +11,6 @@ class User < ApplicationRecord
   validates :nickname, presence: true, uniqueness: true, length: {maximum: 40},
             format: { without: /\W/ }
 
-  include Gravtastic
   gravtastic(secure: true, filetype: :png, size: 100, default: 'mp')
 
   private
