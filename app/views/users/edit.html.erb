@@ -23,7 +23,9 @@
       <p><%= form.text_field :nickname, class: 'form-text-field' %></p>
 
       <p class="mt"><%= form.label :header_color, 'Цвет шапки' %></p>
-      <p><%= form.color_field :header_color, class: 'form-text-field' %></p>
+      <p class="mt-sm mb-sm text-sm">Если хотите вернуть цвет по умолчанию, оставьте это поле пустым</p>
+      <p><%= form.color_field :header_color, class: 'form-text-field', value: '#370617' %>
+      </p>
 
       <p class="mt-lg text-sm">Если не хотите менять пароль — оставьте эти поля пустыми!</p>
 

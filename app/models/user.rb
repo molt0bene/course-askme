@@ -10,6 +10,7 @@ class User < ApplicationRecord
             format: {with: URI::MailTo::EMAIL_REGEXP}
   validates :nickname, presence: true, uniqueness: true, length: {maximum: 40},
             format: { without: /\W/ }
+  validates :header_color, format: /\A#\w{3,9}\z/
 
   gravtastic(secure: true, filetype: :png, size: 100, default: 'mp')
 
