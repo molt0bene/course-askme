@@ -9,6 +9,11 @@ class QuestionsController < ApplicationController
     @question.author = current_user
 
     if @question.save
+      @question.hashtags_included.each { |hashtag|
+        current_hashtag = Hashtag.create(value: hashtag, question_id: @question.id)
+      }
+      @question.save
+
       redirect_to user_path(@question.user.nickname), notice: 'Новый вопрос создан!'
     else
       render :new
@@ -62,5 +67,6 @@ class QuestionsController < ApplicationController
   def set_question_for_current_user
     @question = current_user.questions.find(params[:id])
   end
+
 end
 

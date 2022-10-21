@@ -1,0 +1,26 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h1>Hashtags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Question</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hashtags.each do |hashtag| %>
+      <tr>
+        <td><%= hashtag.value %></td>
+        <td><%= hashtag.question %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+

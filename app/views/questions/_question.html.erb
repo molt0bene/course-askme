@@ -22,6 +22,10 @@
     <% else %>
       Аноним
     <% end %>
+
+    <% unless question.hashtags_included.empty? %>
+      <%= simple_format question.hashtags_included.map {|tag| link_to(tag, hashtag_path(tag))}.join(", ")  %>
+    <% end %>
   </div>
 
 
