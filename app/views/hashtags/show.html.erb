@@ -1,27 +1,13 @@
-</div>
-<p id="notice"><%= notice %></p>
-
-<h1>Hashtags</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>Value</th>
-    <th>Question</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @hashtags.each do |hashtag| %>
-    <tr>
-      <td><%= hashtag.value %></td>
-      <td><%= hashtag.question %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <h2 class="title-lg mb">Хэштег <%= @hashtag.value %></h2>
 </div>
 
-<br>
+<div class="mt-sm container">Все вопросы с этим хэштегом:</div>
+
+<% @questions.each do |question| %>
+  <div class="mt-sm container">
+    <%= render question %>
+  </div>
+<% end %>
+
 

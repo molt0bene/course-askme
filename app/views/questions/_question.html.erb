@@ -24,7 +24,7 @@
     <% end %>
 
     <% unless question.hashtags_included.empty? %>
-      <%= simple_format question.hashtags_included.map {|tag| link_to(tag, hashtag_path(tag))}.join(", ")  %>
+      <%= simple_format tags_to_links(question.hashtags_included)  %>
     <% end %>
   </div>
 

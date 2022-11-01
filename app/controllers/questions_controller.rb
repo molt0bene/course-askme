@@ -9,16 +9,21 @@ class QuestionsController < ApplicationController
     @question.author = current_user
 
     if @question.save
-      @question.hashtags_included.each { |hashtag|
-        current_hashtag = Hashtag.create(value: hashtag, question_id: @question.id)
-      }
-      @question.save
+      @question.hashtags_included.each do |hashtag|
+        @new_hashtag = Hashtag.find_by(value: hashtag.downcase)
+
+        @new_hashtag = Hashtag.create(value: hashtag.downcase) if @new_hashtag.nil?
+
+        @new_hashtag.questions << @question
+        @new_hashtag.save!
+      end
+
+      @question.reload
 
       redirect_to user_path(@question.user.nickname), notice: 'Новый вопрос создан!'
     else
       render :new
     end
-
   end
 
   def update
@@ -36,8 +41,18 @@ class QuestionsController < ApplicationController
 
   def destroy
     @user = @question.user
-    @question.destroy
 
+    # если мы удалили все вопросы с этим тегом, то сам тег тоже удаляем
+    @question.hashtags.each do |hashtag|
+      # список остальных вопросов с этим тегом
+      hashtag_questions = hashtag.questions - [@question]
+
+      if hashtag_questions.empty?
+        hashtag.destroy!
+      end
+    end
+
+    @question.destroy
     redirect_to user_path(@user.nickname), notice: 'Вопрос удален!'
   end
 
@@ -46,8 +61,9 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.order(created_at: :desc).last(10)
+    @questions = Question.order(created_at: :desc).first(10)
     @users = User.order(created_at: :desc).last(10)
+    @hashtags = Hashtag.last(5)
   end
 
   def new

@@ -1,13 +1,9 @@
 class HashtagsController < ApplicationController
 
-  # GET /hashtags
-  def index
-    @hashtags = Hashtag.all
-  end
-
   # GET /hashtags/1 or /hashtags/1.json
   def show
-    # @hashtags = Hashtag.where(...)
+    @hashtag = Hashtag.where(value: params[:value].downcase)[0]
+    @questions = @hashtag.questions.order(created_at: :desc)
   end
 
   # GET /hashtags/new
@@ -20,6 +16,12 @@ class HashtagsController < ApplicationController
 
     if @hashtag.save
       render question_path(@hashtag.question)
+    end
+  end
+
+  def destroy
+    if current_user == @hashtag.question.user
+      @hashtag.destroy!
     end
   end
 

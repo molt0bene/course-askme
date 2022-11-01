@@ -18,6 +18,7 @@
  *= require user
  *= require users
  *= require text
+ *= require hashtags
  *= require spacing
  *= require layout
  *= require button

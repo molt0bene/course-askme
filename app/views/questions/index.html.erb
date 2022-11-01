@@ -12,6 +12,19 @@
 
 <div class="container mt-sm">
   <h2 class="title-lg">
+    Последние хэштеги:
+  </h2>
+  <h3 class="title-sm index-tags">
+    <% @hashtags.each do |tag| %>
+      <p class="mr-sm">
+        <%= simple_format link_to(tag.value, hashtag_path(tag.value)) %>
+      </p>
+    <% end %>
+  </h3>
+</div>
+
+<div class="container mt-sm">
+  <h2 class="title-lg">
     <%= inclination(@questions.count, 'Последний', 'Последние', 'Последние') %>
     <%= @questions.count %>
     <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
