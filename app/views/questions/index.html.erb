@@ -16,11 +16,9 @@
   </h2>
   <h3 class="title-sm index-tags">
     <% @hashtags.each do |tag| %>
-      <% unless tag.questions.empty? %>
       <p class="mr-sm">
         <%= simple_format link_to(tag.value, hashtag_path(tag.value)) %>
       </p>
-      <% end %>
     <% end %>
   </h3>
 </div>
