@@ -15,9 +15,6 @@ class Question < ApplicationRecord
   private
 
   def add_hashtags
-    # если после обновления теги изменились, меняем то, что было раньше
-    self.hashtags.each { |hashtag| hashtag.questions.delete(self) unless hashtags_included.include?(hashtag) }
-
     self.hashtags =
       hashtags_included.map { |hashtag| Hashtag.find_or_create_by(value: hashtag) }
   end
