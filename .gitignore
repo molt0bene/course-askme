@@ -8,27 +8,27 @@
 /.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
+**/db/*.sqlite3
+**/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+**/log/*
+**/tmp/*
+!**/log/.keep
+!**/tmp/.keep
 
 # Ignore uploaded files in development
-/storage/*
-!/storage/.keep
+**/storage/*
+!**/storage/.keep
 
-/node_modules
-/yarn-error.log
+**/node_modules
+**/yarn-error.log
 
-/public/assets
-.byebug_history
+**/public/assets
+**/.byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+**/config/master.key
 
 .idea
 .DS_Store
